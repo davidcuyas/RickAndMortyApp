@@ -32,8 +32,12 @@ class CharacterListViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 if (_characters.isEmpty()) uiState.value = UiState.Loading
+
                 val newCharacters = interactors.getAllCharacters(currentPage)
-                _characters.addAll(newCharacters)
+                val existingIds = _characters.map { it.id }.toSet()
+                val uniqueNewCharacters = newCharacters.filterNot { it.id in existingIds }
+
+                _characters.addAll(uniqueNewCharacters)
                 uiState.value = UiState.Success(_characters.toList())
                 currentPage++
             } catch (e: Exception) {

@@ -39,7 +39,7 @@ fun CharacterListContent(
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Start,
-                    text = character.name
+                    text = "${character.id} - ${character.name}"
                 )
 
                 if (index == characters.lastIndex - 5) { //TODO: Constant

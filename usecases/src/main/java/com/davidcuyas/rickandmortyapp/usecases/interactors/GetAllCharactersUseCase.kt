@@ -14,6 +14,7 @@ class GetAllCharactersUseCase(
         characterList.forEach{ character ->
             characterListDto.add(
                 CharacterListDto(
+                    id = character.id,
                     name = character.name
                 )
             )
