@@ -1,6 +1,5 @@
 package com.davidcuyas.rickandmortyapp.presentation.ui.shared
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,7 +21,6 @@ fun BaseContentHandler(
 ) {
     Row(
         modifier = Modifier.fillMaxSize()
-            .background(Color.White)
             .padding(horizontal = 8.dp, vertical = 16.dp),
         horizontalArrangement = Arrangement.Center
     ) {
@@ -45,5 +43,4 @@ fun BaseContentHandler(
             }
         }
     }
-
 }
