@@ -1,8 +1,8 @@
 package com.davidcuyas.rickandmortyapp.framework.api.datasources
 
 import com.davidcuyas.rickandmortyapp.data.datasources.CharacterDatasource
-import com.davidcuyas.rickandmortyapp.framework.api.RickAndMortyApiService
 import com.davidcuyas.rickandmortyapp.domain.entities.Character
+import com.davidcuyas.rickandmortyapp.framework.api.RickAndMortyApiService
 import com.davidcuyas.rickandmortyapp.framework.api.mapper.toDomain
 import javax.inject.Inject
 

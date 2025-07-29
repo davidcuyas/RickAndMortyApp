@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    private const val BASE_URL = "https://rickandmortyapi.com/api/" // Your API base URL
+    private const val BASE_URL = "https://rickandmortyapi.com/api/"
 
     @Provides
     @Singleton
@@ -28,7 +28,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create()) // Or your chosen converter
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 

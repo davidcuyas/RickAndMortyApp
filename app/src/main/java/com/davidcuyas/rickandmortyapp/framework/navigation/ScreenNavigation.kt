@@ -1,5 +1,6 @@
 package com.davidcuyas.rickandmortyapp.framework.navigation
 
+import com.davidcuyas.rickandmortyapp.framework.navigation.routing.NavigationRouteKey
 import com.davidcuyas.rickandmortyapp.framework.navigation.top.AppBarType
 
 sealed class ScreenNavigation(
@@ -15,7 +16,7 @@ sealed class ScreenNavigation(
         appBarType = AppBarType.LIST
     )
     data object CharacterDetail : ScreenNavigation(
-        route = "characterDetail",
+        route = "characterDetail/{${NavigationRouteKey.CHARACTER_DETAIL_KEY}}",
         title = "Character detail",
         graph = "character-detail-graph",
         appBarType = AppBarType.DETAIL

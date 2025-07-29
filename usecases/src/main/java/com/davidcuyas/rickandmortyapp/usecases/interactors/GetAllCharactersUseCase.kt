@@ -16,7 +16,7 @@ class GetAllCharactersUseCase(
                 CharacterListDto(
                     id = character.id,
                     name = character.name
-                )
+                )//TODO: Fill with all data
             )
 
         }
