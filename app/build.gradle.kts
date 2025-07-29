@@ -52,6 +52,7 @@ dependencies {
 
     implementation(libs.androidx.multidex)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 
     //region Compose
     implementation(libs.androidx.compose.ui)
@@ -77,6 +78,7 @@ dependencies {
 
     //Retrofit
     implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
 
     //region Testing
     androidTestImplementation(libs.androidx.junit)
