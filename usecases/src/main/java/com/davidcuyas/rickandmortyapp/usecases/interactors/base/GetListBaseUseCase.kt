@@ -1,5 +1,5 @@
 package com.davidcuyas.rickandmortyapp.usecases.interactors.base
 
-interface GetListBaseUseCase<T> {
-    suspend operator fun invoke(): List<T>
+interface GetPaginatedListBaseUseCase<T> {
+    suspend operator fun invoke(page: Int): List<T>
 }

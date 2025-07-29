@@ -19,11 +19,11 @@ class RemoteCharacterDatasource @Inject constructor(
     }
 
     override suspend fun get(): List<Character> {
-        return get(page = null)
+        return get(page = 0)
     }
 
 
-    suspend fun get(page: Int?): List<Character> {
+    override suspend fun get(page: Int): List<Character> {
         return try {
             apiService.getAllCharacters(page = page).results.map { it.toDomain() }
         } catch (e: Exception) {

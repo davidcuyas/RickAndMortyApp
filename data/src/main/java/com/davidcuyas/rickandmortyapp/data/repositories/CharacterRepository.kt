@@ -16,6 +16,9 @@ open class CharacterRepository(
     override suspend fun get(): List<Character> =
         datasource.get()
 
+    override suspend fun get(page: Int): List<Character> =
+        datasource.get(page)
+
     override suspend fun deleteAll() =
         datasource.deleteAll()
 

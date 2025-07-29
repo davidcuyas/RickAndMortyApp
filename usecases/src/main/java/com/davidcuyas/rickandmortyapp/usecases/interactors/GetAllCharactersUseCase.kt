@@ -2,14 +2,14 @@ package com.davidcuyas.rickandmortyapp.usecases.interactors
 
 import com.davidcuyas.rickandmortyapp.data.repositories.CharacterRepository
 import com.davidcuyas.rickandmortyapp.usecases.entities.CharacterListDto
-import com.davidcuyas.rickandmortyapp.usecases.interactors.base.GetListBaseUseCase
+import com.davidcuyas.rickandmortyapp.usecases.interactors.base.GetPaginatedListBaseUseCase
 
 class GetAllCharactersUseCase(
     private val repository: CharacterRepository
-): GetListBaseUseCase<CharacterListDto> {
-    override suspend fun invoke(): List<CharacterListDto> {
+): GetPaginatedListBaseUseCase<CharacterListDto> {
+    override suspend fun invoke(page: Int): List<CharacterListDto> {
         val characterListDto = mutableListOf<CharacterListDto>()
-        val characterList = repository.get()
+        val characterList = repository.get(page)
 
         characterList.forEach{ character ->
             characterListDto.add(
