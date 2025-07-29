@@ -17,14 +17,14 @@ class CharacterListViewModel @Inject constructor(
     private val interactors: CharacterInteractors
 ) : BaseViewModel<List<CharacterListDto>>(application) {
     init {
-        getAlLDaruma()
+        getAllCharacters()
     }
 
-    private fun getAlLDaruma() {
+    private fun getAllCharacters() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val darumaList = interactors.getAllCharacters()
-                uiState.value = UiState.Success(darumaList)
+                val characterList = interactors.getAllCharacters()
+                uiState.value = UiState.Success(characterList)
             } catch (exception: Exception) {
                 uiState.value = UiState.Error(exception.message.toString())
             }

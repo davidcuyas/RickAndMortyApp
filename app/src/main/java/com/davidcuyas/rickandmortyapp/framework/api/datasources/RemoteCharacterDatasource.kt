@@ -19,7 +19,7 @@ class RemoteCharacterDatasource @Inject constructor(
     }
 
     override suspend fun get(): List<Character> {
-        return get(page = 1)
+        return get(page = null)
     }
 
 

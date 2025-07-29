@@ -17,7 +17,7 @@ fun CharacterDetailScreen(
     id: Int,
     characterDetailViewModel: CharacterDetailViewModel = hiltViewModel()
 ) {
-    LaunchedEffect(key1 = "DarumaDetailScreen") {
+    LaunchedEffect(key1 = "CharacterDetailScreen") {
         characterDetailViewModel.getCharacterDetailById(id)
     }
 

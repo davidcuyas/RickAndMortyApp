@@ -9,7 +9,7 @@ import retrofit2.http.Path
 interface RickAndMortyApiService {
 
     @GET("character")
-    suspend fun getAllCharacters(@Query("page") page: Int? = null): CharacterListResponseDto // Assuming pagination
+    suspend fun getAllCharacters(@Query("page") page: Int? = null): CharacterListResponseDto
 
     @GET("character/{id}")
     suspend fun getCharacterById(@Path("id") characterId: Int): CharacterDto
