@@ -6,7 +6,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.davidcuyas.rickandmortyapp.framework.navigation.top.CharacterListAppBar
 import com.davidcuyas.rickandmortyapp.presentation.ui.shared.BaseScaffold
-import com.davidcuyas.rickandmortyapp.presentation.viewmodels.list.CharacterListViewModel
+import com.davidcuyas.rickandmortyapp.presentation.viewmodels.character.CharacterListViewModel
 
 @Composable
 fun CharacterListScreen(

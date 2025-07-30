@@ -8,7 +8,7 @@ import androidx.navigation.NavHostController
 import com.davidcuyas.rickandmortyapp.framework.navigation.routing.NavigationActions
 import com.davidcuyas.rickandmortyapp.framework.navigation.top.CharacterDetailAppBar
 import com.davidcuyas.rickandmortyapp.presentation.ui.shared.BaseScaffold
-import com.davidcuyas.rickandmortyapp.presentation.viewmodels.CharacterDetailViewModel
+import com.davidcuyas.rickandmortyapp.presentation.viewmodels.character.CharacterDetailViewModel
 
 @Composable
 fun CharacterDetailScreen(

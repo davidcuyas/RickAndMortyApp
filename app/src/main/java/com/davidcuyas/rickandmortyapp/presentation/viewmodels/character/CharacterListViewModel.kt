@@ -1,4 +1,4 @@
-package com.davidcuyas.rickandmortyapp.presentation.viewmodels.list
+package com.davidcuyas.rickandmortyapp.presentation.viewmodels.character
 
 import android.app.Application
 import androidx.compose.runtime.mutableStateListOf

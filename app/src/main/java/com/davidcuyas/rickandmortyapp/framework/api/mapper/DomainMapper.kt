@@ -1,11 +1,13 @@
 package com.davidcuyas.rickandmortyapp.framework.api.mapper
 
 import com.davidcuyas.rickandmortyapp.domain.entities.Character
+import com.davidcuyas.rickandmortyapp.domain.entities.Episode
 import com.davidcuyas.rickandmortyapp.domain.entities.Location
 import com.davidcuyas.rickandmortyapp.domain.entities.Origin
-import com.davidcuyas.rickandmortyapp.framework.api.entities.CharacterDto
+import com.davidcuyas.rickandmortyapp.framework.api.entities.CharacterApiDto
+import com.davidcuyas.rickandmortyapp.framework.api.entities.EpisodeApiDto
 
-fun CharacterDto.toDomain(): Character {
+fun CharacterApiDto.toDomain(): Character {
     return Character(
         id = this.id,
         name = this.name,
@@ -25,5 +27,17 @@ fun CharacterDto.toDomain(): Character {
         episode = this.episode,
         created = this.created,
         url = this.url
+    )
+}
+
+fun EpisodeApiDto.toDomain(): Episode {
+    return Episode(
+        id = this.id,
+        name = this.name,
+        airDate = this.airDate,
+        episode = this.code,
+        characters = this.characters,
+        url = this.url,
+        created = this.created
     )
 }

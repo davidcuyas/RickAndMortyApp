@@ -1,10 +1,10 @@
-package com.davidcuyas.rickandmortyapp.presentation.viewmodels
+package com.davidcuyas.rickandmortyapp.presentation.viewmodels.character
 
 import android.app.Application
 import androidx.lifecycle.viewModelScope
-import com.davidcuyas.rickandmortyapp.domain.entities.Character
 import com.davidcuyas.rickandmortyapp.presentation.viewmodels.base.BaseViewModel
 import com.davidcuyas.rickandmortyapp.presentation.viewmodels.base.UiState
+import com.davidcuyas.rickandmortyapp.usecases.entities.CharacterDetailDto
 import com.davidcuyas.rickandmortyapp.usecases.interactors.CharacterInteractors
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +15,7 @@ import javax.inject.Inject
 class CharacterDetailViewModel @Inject constructor(
     application: Application,
     private val interactors: CharacterInteractors
-) : BaseViewModel<Character>(application) {
+) : BaseViewModel<CharacterDetailDto>(application) {
 
     fun getCharacterDetailById(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {

@@ -1,9 +1,12 @@
 package com.davidcuyas.rickandmortyapp.framework.di
 
 import com.davidcuyas.rickandmortyapp.data.repositories.CharacterRepository
+import com.davidcuyas.rickandmortyapp.data.repositories.EpisodeRepository
 import com.davidcuyas.rickandmortyapp.usecases.interactors.CharacterInteractors
+import com.davidcuyas.rickandmortyapp.usecases.interactors.EpisodeInteractors
 import com.davidcuyas.rickandmortyapp.usecases.interactors.GetAllCharactersUseCase
 import com.davidcuyas.rickandmortyapp.usecases.interactors.GetCharacterDetailByIdUseCase
+import com.davidcuyas.rickandmortyapp.usecases.interactors.GetEpisodeByIdUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,10 +18,21 @@ object UseCaseModule {
 
     @Provides
     fun provideCharacterUseCases(
-        repository: CharacterRepository
+        characterRepository: CharacterRepository,
+        episodeRepository: EpisodeRepository
     ) = CharacterInteractors(
-        getAllCharacters = GetAllCharactersUseCase(repository),
-        getCharacterDetailById = GetCharacterDetailByIdUseCase(repository)
+        getAllCharacters = GetAllCharactersUseCase(characterRepository),
+        getCharacterDetailById = GetCharacterDetailByIdUseCase(
+            characterRepository,
+            episodeRepository
+        )
+    )
+
+    @Provides
+    fun provideEpisodeUseCases(
+        repository: EpisodeRepository
+    ) = EpisodeInteractors(
+        getEpisodeById = GetEpisodeByIdUseCase(repository)
     )
 
 }

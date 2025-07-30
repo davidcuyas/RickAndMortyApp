@@ -38,19 +38,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.davidcuyas.rickandmortyapp.R
-import com.davidcuyas.rickandmortyapp.domain.entities.Character
 import com.davidcuyas.rickandmortyapp.presentation.ui.shared.BaseContentHandler
 import com.davidcuyas.rickandmortyapp.presentation.ui.theme.ThemeFontFamily
 import com.davidcuyas.rickandmortyapp.presentation.viewmodels.base.UiState
+import com.davidcuyas.rickandmortyapp.usecases.entities.CharacterDetailDto
 
 @Composable
 fun CharacterDetailContent(
-    uiState: UiState<Character?>,
+    uiState: UiState<CharacterDetailDto?>,
     onBack: () -> Unit = {},
     onNext: () -> Unit = {},
     context: Context = LocalContext.current
 ) {
-    val fontFamily = ThemeFontFamily.playFontFamily
+    val fontFamily = ThemeFontFamily.schoolbellFontFamily
     BaseContentHandler(uiState = uiState) {
         val character = (uiState as UiState.Success).data
 
@@ -116,7 +116,8 @@ fun CharacterDetailContent(
                     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                         LazyColumn {
                             items(character?.episode?.count() ?: 0){
-                                Text(text = character?.episode?.get(it) ?: "", fontFamily = fontFamily)
+                                val episode = character?.episode?.get(it)
+                                Text(text = episode?.episode ?: "", fontFamily = fontFamily)
                             }
                         }
                     }

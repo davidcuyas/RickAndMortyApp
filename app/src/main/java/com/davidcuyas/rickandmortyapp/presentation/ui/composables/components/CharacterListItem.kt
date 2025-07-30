@@ -42,7 +42,7 @@ fun CharacterListItem(
     character: CharacterListDto,
     onClick: (Int) -> Unit = {}
 ) {
-    val fontFamily = ThemeFontFamily.playFontFamily
+    val fontFamily = ThemeFontFamily.schoolbellFontFamily
     Column(modifier = modifier
         .clickable {
             onClick(character.id)

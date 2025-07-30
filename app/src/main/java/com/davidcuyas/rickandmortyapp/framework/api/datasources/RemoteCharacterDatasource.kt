@@ -10,18 +10,9 @@ class RemoteCharacterDatasource @Inject constructor(
     private val apiService: RickAndMortyApiService
 ) : CharacterDatasource {
 
-    override suspend fun insert(item: Character) {
-        throw UnsupportedOperationException("Creating characters is not supported by this API.")
-    }
-
-    override suspend fun insertAll(items: List<Character>) {
-        throw UnsupportedOperationException("Creating characters is not supported by this API.")
-    }
-
     override suspend fun get(): List<Character> {
         return get(page = 0)
     }
-
 
     override suspend fun get(page: Int): List<Character> {
         return try {
@@ -41,15 +32,4 @@ class RemoteCharacterDatasource @Inject constructor(
         }
     }
 
-    override suspend fun update(item: Character) {
-        throw UnsupportedOperationException("Updating characters is not supported by this API.")
-    }
-
-    override suspend fun delete(item: Character) {
-        throw UnsupportedOperationException("Deleting characters is not supported by this API.")
-    }
-
-    override suspend fun deleteAll() {
-        throw UnsupportedOperationException("Deleting characters is not supported by this API.")
-    }
 }
