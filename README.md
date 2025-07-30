@@ -72,12 +72,14 @@ This app follows a **modular Clean Architecture**, based on **SOLID principles**
 ## 📂 Project Structure
 
 The app is organized in modules following Clean Architecture principles:
+
+```text
 📦 app/
-├── framework/         # DI, navigation, configuration, API
-├── presentation/      # Composables, ViewModels, navigation
+├── framework/         # DI, navigation, API implementation
+├── presentation/      # UI and ViewModels
 
 📦 data/
-├── datasources/       # Data source contracts
+├── datasources/       # Datasource contracts
 ├── repositories/      # Repository implementations
 
 📦 domain/
@@ -85,7 +87,8 @@ The app is organized in modules following Clean Architecture principles:
 
 📦 usecases/
 ├── interactors/       # Use cases (business logic)
-└── entities/          # Shared entities across layers
+└── entities/          # DTOs
+```
 
 ---
 
