@@ -18,14 +18,16 @@ fun CharacterListScreen(
         navController = navHostController,
         appBar = { CharacterListAppBar() }
     ) {
-
         val uiState = characterListViewModel.uiState().collectAsStateWithLifecycle().value
+
         CharacterListContent(
             uiState = uiState,
             onClick = {
                 goToCharacterDetail(it)
+            },
+            onLoadMore = {
+                characterListViewModel.loadCharacters()
             }
         )
-
     }
 }

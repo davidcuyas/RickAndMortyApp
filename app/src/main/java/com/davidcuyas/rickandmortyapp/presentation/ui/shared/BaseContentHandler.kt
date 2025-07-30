@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.davidcuyas.rickandmortyapp.presentation.ui.theme.MaximumBlue
 import com.davidcuyas.rickandmortyapp.presentation.viewmodels.base.UiState
 
 @Composable
@@ -27,7 +28,8 @@ fun BaseContentHandler(
         when (uiState) {
             is UiState.Loading -> {
                 CircularProgressIndicator(
-                    modifier = Modifier.size(64.dp).align(Alignment.CenterVertically)
+                    modifier = Modifier.size(64.dp).align(Alignment.CenterVertically),
+                    color = MaximumBlue
                 )
             }
 

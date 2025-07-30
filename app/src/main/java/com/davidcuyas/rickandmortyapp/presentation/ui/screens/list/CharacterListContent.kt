@@ -1,6 +1,5 @@
 package com.davidcuyas.rickandmortyapp.presentation.ui.screens.list
 
-import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,33 +12,33 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import com.davidcuyas.rickandmortyapp.framework.api.PaginationThreshold
 import com.davidcuyas.rickandmortyapp.presentation.ui.composables.components.CharacterListItem
 import com.davidcuyas.rickandmortyapp.presentation.ui.shared.BaseContentHandler
+import com.davidcuyas.rickandmortyapp.presentation.ui.shared.mockCharacterList
 import com.davidcuyas.rickandmortyapp.presentation.viewmodels.base.UiState
-import com.davidcuyas.rickandmortyapp.presentation.viewmodels.character.CharacterListViewModel
 import com.davidcuyas.rickandmortyapp.usecases.entities.CharacterListDto
 
 @Composable
 fun CharacterListContent(
-    context: Context = LocalContext.current,
+    modifier: Modifier = Modifier,
     uiState: UiState<List<CharacterListDto>?>,
-    viewModel: CharacterListViewModel = hiltViewModel(),
-    onClick: (Int) -> Unit = {}
+    onClick: (Int) -> Unit = {},
+    onLoadMore: () -> Unit = {}
 ) {
-    val characters by remember { derivedStateOf { viewModel.characters } }
-    val uiState by viewModel.uiState().collectAsState()
-
     BaseContentHandler(uiState = uiState) {
+        val characters = if(uiState is UiState.Success){
+            uiState.data ?: listOf()
+        }else{
+            listOf()
+        }
+
         val gridState = rememberLazyGridState()
+
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             state = gridState,
@@ -53,8 +52,8 @@ fun CharacterListContent(
                     onClick = onClick
                 )
 
-                if (index == characters.lastIndex - 5) { // TODO: Constant
-                    viewModel.loadCharacters()
+                if (index == characters.lastIndex - PaginationThreshold) {
+                    onLoadMore()
                 }
             }
 
@@ -71,23 +70,13 @@ fun CharacterListContent(
                 }
             }
         }
-/*
-        LazyColumn {
-            itemsIndexed(characters){ index, character ->
-                CharacterListItem(character = character)
-
-                if (index == characters.lastIndex - 5) { //TODO: Constant
-                    viewModel.loadCharacters()
-                }
-            }
-
-            if (uiState is UiState.Loading) {
-                item {
-                    CircularProgressIndicator(modifier = Modifier.padding(16.dp))
-                }
-            }
-        }
-
- */
     }
+}
+
+@Preview
+@Composable
+private fun CharacterListContentPreview() {
+    CharacterListContent(
+        uiState = UiState.Success(mockCharacterList)
+    )
 }

@@ -26,13 +26,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.davidcuyas.rickandmortyapp.R
 import com.davidcuyas.rickandmortyapp.domain.entities.Status
+import com.davidcuyas.rickandmortyapp.presentation.ui.composables.elements.Tag
+import com.davidcuyas.rickandmortyapp.presentation.ui.theme.LemonYellow
+import com.davidcuyas.rickandmortyapp.presentation.ui.theme.LightGoldenrodYellow
+import com.davidcuyas.rickandmortyapp.presentation.ui.theme.LightGray
+import com.davidcuyas.rickandmortyapp.presentation.ui.theme.PaleGreen
+import com.davidcuyas.rickandmortyapp.presentation.ui.theme.PastelRed
+import com.davidcuyas.rickandmortyapp.presentation.ui.theme.PowderBlue
 import com.davidcuyas.rickandmortyapp.presentation.ui.theme.ThemeFontFamily
 import com.davidcuyas.rickandmortyapp.usecases.entities.CharacterListDto
 
@@ -50,7 +56,7 @@ fun CharacterListItem(
         .width(180.dp)
         .padding(8.dp)
         .background(
-            color = Color(0xFFF5F9D4),
+            color = LightGoldenrodYellow,
             shape = RoundedCornerShape(16.dp)
         )
         .border(2.dp, Color.Black, RoundedCornerShape(16.dp))
@@ -95,61 +101,43 @@ fun CharacterListItem(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .weight(1f)
-                    .background(Color(0xFFB0E0E6), shape = RoundedCornerShape(8.dp))
-                    .padding(horizontal = 8.dp, vertical = 4.dp)
-            ) {
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    text = character.species,
-                    color = Color.Black,
-                    fontSize = 14.sp,
-                    fontFamily = fontFamily,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    textAlign = TextAlign.Center
-                )
-            }
+            Tag(
+                modifier = Modifier.weight(1f),
+                name = character.species,
+                color = PowderBlue,
+                fontFamily = fontFamily
+            )
 
-            val statusEnum = enumValues<Status>().firstOrNull {
-                it.name.equals(character.status, ignoreCase = true)
-            }
-            val speciesColor = getColorFromStatus(statusEnum)
-            Box(
-                modifier = Modifier
-                    .weight(1f)
-                    .background(speciesColor, shape = RoundedCornerShape(8.dp))
-                    .padding(horizontal = 8.dp, vertical = 4.dp)
-            ) {
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    text = character.status.capitalize(Locale.current),
-                    color = Color.Black,
-                    fontSize = 14.sp,
-                    fontFamily = fontFamily,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    textAlign = TextAlign.Center
-                )
-            }
+            val speciesColor = getColorFromStatus(getStatusEnumFromName(character.status))
+
+            Tag(
+                modifier = Modifier.weight(1f),
+                name = character.status.capitalize(Locale.current),
+                color = speciesColor,
+                fontFamily = fontFamily
+            )
         }
+    }
+}
+
+private fun getStatusEnumFromName(status: String): Status?{
+    return enumValues<Status>().firstOrNull {
+        it.name.equals(status, ignoreCase = true)
     }
 }
 
 private fun getColorFromStatus(status: Status?): Color{
     return when(status){
-        Status.Alive -> Color(0xFF98FB98)
-        Status.Dead -> Color(0xFFFF6F69)
-        Status.Unknown -> Color(0xFFFFF59D)
-        else -> Color(0xFFD3D3D3)
+        Status.Alive -> PaleGreen
+        Status.Dead -> PastelRed
+        Status.Unknown -> LemonYellow
+        else -> LightGray
     }
 }
 
 @Preview
 @Composable
-private fun CharacterListItemPreview() {
+private fun HumanAliveCharacterListItemPreview() {
     CharacterListItem(
         character = CharacterListDto(
             id = 1,
@@ -160,4 +148,34 @@ private fun CharacterListItemPreview() {
         )
     )
 }
+
+@Preview
+@Composable
+private fun AlienDeadCharacterListItemPreview() {
+    CharacterListItem(
+        character = CharacterListDto(
+            id = 1,
+            name = "Rick Sanchez",
+            imageUrl = "",
+            species = "Alien",
+            status = "Dead"
+        )
+    )
+}
+
+@Preview
+@Composable
+private fun AnimalUnknownCharacterListItemPreview() {
+    CharacterListItem(
+        character = CharacterListDto(
+            id = 1,
+            name = "Rick Sanchez",
+            imageUrl = "",
+            species = "Animal",
+            status = "Unknown"
+        )
+    )
+}
+
+
 

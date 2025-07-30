@@ -1,7 +1,6 @@
 package com.davidcuyas.rickandmortyapp.presentation.ui.shared
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets

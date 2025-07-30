@@ -16,9 +16,7 @@ class GetCharacterDetailByIdUseCase(
 
         val episodes = mutableListOf<Episode>()
         characterDetail.episode.forEach { episodeUrl ->
-            val episodeId = episodeUrl.trimEnd('/')
-                .substringAfterLast('/')
-                .takeIf { it.isNotBlank() }?.toInt()
+            val episodeId = getEpisodeIdFromUrl(episodeUrl)
 
             if(episodeId != null){
                 val episode = episodeRepository.getById(episodeId)
@@ -42,6 +40,12 @@ class GetCharacterDetailByIdUseCase(
             url = characterDetail.url,
             created = characterDetail.created
         )
+    }
+
+    private fun getEpisodeIdFromUrl(url: String): Int? {
+        return url.trimEnd('/')
+            .substringAfterLast('/')
+            .takeIf { it.isNotBlank() }?.toInt()
     }
 
 }
