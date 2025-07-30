@@ -44,11 +44,11 @@ This app follows a **modular Clean Architecture**, based on **SOLID principles**
 
 ### 🔍 Overview
 
-![Architecture Overview](img/architecture/architecture_overview.jpeg)
+![Architecture Overview](img/architecture/architecture_overview.png)
 
 ### 🧩 Package Detail
 
-![Architecture Detail](img/architecture/architecture_detail.jpeg)
+![Architecture Detail](img/architecture/architecture_detail.png)
 
 ### 🗺️ Legend
 
@@ -57,7 +57,7 @@ This app follows a **modular Clean Architecture**, based on **SOLID principles**
 ---
 
 ## 🛠️ Tech Stack
-
+g
 - **Language**: Kotlin
 - **UI Toolkit**: Jetpack Compose
 - **Architecture**: Clean Architecture
