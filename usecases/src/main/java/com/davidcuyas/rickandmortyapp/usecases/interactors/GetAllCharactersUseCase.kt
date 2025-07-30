@@ -15,12 +15,13 @@ class GetAllCharactersUseCase(
             characterListDto.add(
                 CharacterListDto(
                     id = character.id,
-                    name = character.name
-                )//TODO: Fill with all data
+                    name = character.name,
+                    imageUrl = character.image,
+                    species = character.species,
+                    status = character.status
+                )
             )
-
         }
-
 
         return characterListDto
     }

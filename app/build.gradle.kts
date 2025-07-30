@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.androidx.material.icons.core)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.ui.fonts)
     //endregion
 
     //Hilt
@@ -79,6 +80,9 @@ dependencies {
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+
+    //Coil
+    implementation(libs.coil)
 
     //region Testing
     androidTestImplementation(libs.androidx.junit)
