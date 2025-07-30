@@ -6,6 +6,23 @@ Explore the characters of **Rick & Morty** with a clean, fast, and fluid experie
 
 ---
 
+## 📑 Table of Contents
+
+- [✨ Main Features](#-main-features)
+- [📷 Screenshots](#-screenshots)
+- [🧱 Architecture](#-architecture)
+    - [🔍 Overview](#-overview)
+    - [🧩 Package Detail](#-package-detail)
+    - [🗺️ Legend](#-legend)
+- [🛠️ Tech Stack](#-tech-stack)
+- [📂 Project Structure](#-project-structure)
+- [⚙️ Getting Started](#-getting-started)
+- [🧪 Testing](#-testing)
+- [💡 Technical Decisions](#-technical-decisions)
+- [📬 Contact](#-contact)
+
+---
+
 ## ✨ Main Features
 
 - ✅ Paginated list of characters
