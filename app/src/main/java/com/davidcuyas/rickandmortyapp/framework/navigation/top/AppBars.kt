@@ -1,6 +1,7 @@
 package com.davidcuyas.rickandmortyapp.framework.navigation.top
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -43,6 +44,11 @@ fun CharacterListAppBar() {
 fun CharacterDetailAppBar(
     navHostController: NavHostController? = null
 ) {
+    val color = if(isSystemInDarkTheme()){
+        Color.White
+    }else{
+        Color.Black
+    }
     Box(modifier = Modifier.fillMaxWidth().height(80.dp), contentAlignment = Alignment.Center) {
         Image(
             painter = painterResource(id = R.drawable.rick_and_morty_title),
@@ -58,7 +64,8 @@ fun CharacterDetailAppBar(
                         modifier = Modifier.padding(start = 8.dp),
                         painter = painterResource(R.drawable.back_arrow),
                         contentDescription = "",
-                        tint = Color.Black)
+                        tint = color
+                    )
                 }
             },
             title = {

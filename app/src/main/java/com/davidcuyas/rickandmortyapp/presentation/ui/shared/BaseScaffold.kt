@@ -1,6 +1,7 @@
 package com.davidcuyas.rickandmortyapp.presentation.ui.shared
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
@@ -25,9 +26,15 @@ fun BaseScaffold(
     content: @Composable (PaddingValues) -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
+        val background = if(isSystemInDarkTheme()){
+            R.drawable.dark_background
+        }else{
+            R.drawable.light_background
+        }
+
         Image(
             modifier = Modifier.fillMaxSize(),
-            painter = painterResource(id = R.drawable.light_background),
+            painter = painterResource(id = background),
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
@@ -39,7 +46,6 @@ fun BaseScaffold(
             ),
             topBar = { appBar() },
             bottomBar = {
-                //BottomBar(navController = navController)
             },
             backgroundColor = Color.Transparent,
             contentColor = Color.Transparent

@@ -52,7 +52,7 @@ fun CharacterCardDetail(
                 LazyColumn {
                     items(character?.episode?.count() ?: 0){
                         val episode = character?.episode?.get(it)
-                        EpisodeInfo(episode = episode)
+                        EpisodeInfo(episode = episode, fontFamily = fontFamily)
                     }
                 }
             }

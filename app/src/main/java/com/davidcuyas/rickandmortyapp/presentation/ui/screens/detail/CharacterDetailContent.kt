@@ -19,7 +19,7 @@ import com.davidcuyas.rickandmortyapp.usecases.entities.CharacterDetailDto
 fun CharacterDetailContent(
     uiState: UiState<CharacterDetailDto?>
 ) {
-    val fontFamily = ThemeFontFamily.schoolbellFontFamily
+    val fontFamily = ThemeFontFamily.playFontFamily
     BaseContentHandler(uiState = uiState) {
         val character = (uiState as UiState.Success).data
 
