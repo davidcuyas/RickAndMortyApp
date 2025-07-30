@@ -14,4 +14,7 @@
     <string name="character_card_overview_status">Status</string>
     <string name="character_card_overview_species">Species</string>
     <string name="character_card_overview_gender">Gender</string>
+
+    <string name="error_message_generic">Something went wrong: </string>
+    <string name="error_message_unknown">Unknown error</string>
 </resources>

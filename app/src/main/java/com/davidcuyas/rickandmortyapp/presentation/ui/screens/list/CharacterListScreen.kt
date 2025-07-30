@@ -22,12 +22,6 @@ fun CharacterListScreen(
     ) {
         val uiState = characterListViewModel.uiState().collectAsStateWithLifecycle().value
 
-        val characters = remember(uiState) {
-            if (uiState is UiState.Success) {
-                uiState.data ?: emptyList()
-            } else emptyList()
-        }
-
         CharacterListContent(
             uiState = uiState,
             onClick = {

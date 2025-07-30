@@ -16,4 +16,7 @@
     <string name="character_card_overview_status">Estado</string>
     <string name="character_card_overview_species">Espécie</string>
     <string name="character_card_overview_gender">Género</string>
+
+    <string name="error_message_generic">Se ha producido un error: </string>
+    <string name="error_message_unknown">Error desconocido</string>
 </resources>

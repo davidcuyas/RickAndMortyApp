@@ -3,6 +3,7 @@ package com.davidcuyas.rickandmortyapp.presentation.viewmodels.character
 import android.app.Application
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.viewModelScope
+import com.davidcuyas.rickandmortyapp.R
 import com.davidcuyas.rickandmortyapp.presentation.viewmodels.base.BaseViewModel
 import com.davidcuyas.rickandmortyapp.presentation.viewmodels.base.UiState
 import com.davidcuyas.rickandmortyapp.usecases.entities.CharacterListDto
@@ -20,7 +21,6 @@ class CharacterListViewModel @Inject constructor(
     private var isLoadingMore = false
 
     private val _characters = mutableStateListOf<CharacterListDto>()
-    val characters: List<CharacterListDto> get() = _characters
 
     init {
         loadCharacters()
@@ -41,7 +41,9 @@ class CharacterListViewModel @Inject constructor(
                 uiState.value = UiState.Success(_characters.toList())
                 currentPage++
             } catch (e: Exception) {
-                uiState.value = UiState.Error(e.message ?: "Unknown error")
+                uiState.value = UiState.Error(
+                    message = e.message ?: context.getString(R.string.error_message_unknown)
+                )
             } finally {
                 isLoadingMore = false
             }

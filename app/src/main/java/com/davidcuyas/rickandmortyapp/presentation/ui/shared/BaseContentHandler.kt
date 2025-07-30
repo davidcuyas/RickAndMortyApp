@@ -11,7 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.davidcuyas.rickandmortyapp.R
 import com.davidcuyas.rickandmortyapp.presentation.ui.theme.MaximumBlue
 import com.davidcuyas.rickandmortyapp.presentation.viewmodels.base.UiState
 
@@ -35,7 +37,7 @@ fun BaseContentHandler(
 
             is UiState.Error -> {
                 Text(
-                    text = "Error: ${uiState.message}",
+                    text = "${stringResource(R.string.error_message_generic)} \n${uiState.message}",
                     color = Color.Red
                 )
             }

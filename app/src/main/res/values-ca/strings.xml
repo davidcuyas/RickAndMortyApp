@@ -16,4 +16,7 @@
     <string name="character_card_overview_status">Estat</string>
     <string name="character_card_overview_species">Espècie</string>
     <string name="character_card_overview_gender">Gènere</string>
+
+    <string name="error_message_generic">S\'ha produit un error: </string>
+    <string name="error_message_unknown">Error desconegut</string>
 </resources>
