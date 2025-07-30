@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">RickAndMortyApp</string>
-    <string name="screen_title_character_list">List of characters</string>
-    <string name="screen_title_character_detail">Detail</string>
+    <string name="app_name">R&amp;M App</string>
+
+    <string name="character_card_detail_type">Type</string>
+    <string name="character_card_detail_origin">Origin</string>
+    <string name="character_card_detail_location">Location</string>
+
+    <plurals name="character_card_detail_episodes_appearance">
+        <item quantity="one">Appears on this episode:</item>
+        <item quantity="other">Appears on these episodes:</item>
+    </plurals>
+
+    <string name="character_card_overview_name">Name</string>
+    <string name="character_card_overview_status">Status</string>
+    <string name="character_card_overview_species">Species</string>
+    <string name="character_card_overview_gender">Gender</string>
 </resources>

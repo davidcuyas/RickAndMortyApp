@@ -2,7 +2,6 @@ package com.davidcuyas.rickandmortyapp.usecases.interactors
 
 import com.davidcuyas.rickandmortyapp.data.repositories.CharacterRepository
 import com.davidcuyas.rickandmortyapp.data.repositories.EpisodeRepository
-import com.davidcuyas.rickandmortyapp.domain.entities.Episode
 import com.davidcuyas.rickandmortyapp.usecases.entities.CharacterDetailDto
 import com.davidcuyas.rickandmortyapp.usecases.interactors.base.GetByIdBaseUseCase
 
@@ -14,17 +13,8 @@ class GetCharacterDetailByIdUseCase(
     override suspend fun invoke(id: Int): CharacterDetailDto? {
         val characterDetail = characterRepository.getById(id) ?: return null
 
-        val episodes = mutableListOf<Episode>()
-        characterDetail.episode.forEach { episodeUrl ->
-            val episodeId = getEpisodeIdFromUrl(episodeUrl)
-
-            if(episodeId != null){
-                val episode = episodeRepository.getById(episodeId)
-                if(episode != null){
-                    episodes.add(episode)
-                }
-            }
-        }
+        val episodeIds = characterDetail.episode.mapNotNull { getEpisodeIdFromUrl(it) }
+        val episodes = episodeRepository.getById(episodeIds)
 
         return CharacterDetailDto(
             id = characterDetail.id,

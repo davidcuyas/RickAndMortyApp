@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">R&amp;M App</string>
+
+    <string name="character_card_detail_type">Tipus</string>
+    <string name="character_card_detail_origin">Origen</string>
+    <string name="character_card_detail_location">Ubicació</string>
+
+    <plurals name="character_card_detail_episodes_appearance">
+        <item quantity="one">Apareix en aquest episodi:</item>
+        <item quantity="other">Apareix en aquests episodis:</item>
+        <item quantity="many">Apareix en aquests episodis:</item>
+    </plurals>
+
+    <string name="character_card_overview_name">Nom</string>
+    <string name="character_card_overview_status">Estat</string>
+    <string name="character_card_overview_species">Espècie</string>
+    <string name="character_card_overview_gender">Gènere</string>
+</resources>

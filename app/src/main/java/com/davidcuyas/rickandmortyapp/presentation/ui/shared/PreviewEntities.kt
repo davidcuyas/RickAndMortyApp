@@ -33,7 +33,7 @@ val mockCharacterDetail = CharacterDetailDto(
     status = "Alive",
     species = "Human",
     type = "",
-    gender = "",
+    gender = "Male",
     origin = Origin(
         name = "Earth (C-137)",
         url = "https://rickandmortyapi.com/api/location/1"
@@ -60,15 +60,15 @@ val mockCharacterList = listOf(
         id = 2,
         name = "Morty Smith",
         imageUrl = "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-        species = "Human",
-        status = "Alive"
+        species = "Alien",
+        status = "Dead"
     ),
     CharacterListDto(
         id = 3,
         name = "Summer Smith",
         imageUrl = "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-        species = "Human",
-        status = "Dead"
+        species = "Animal",
+        status = "Unknown"
     ),
     CharacterListDto(
         id = 4,

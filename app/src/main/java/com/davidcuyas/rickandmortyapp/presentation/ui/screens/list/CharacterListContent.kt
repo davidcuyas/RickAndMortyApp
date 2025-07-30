@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,10 +32,12 @@ fun CharacterListContent(
     onLoadMore: () -> Unit = {}
 ) {
     BaseContentHandler(uiState = uiState) {
-        val characters = if(uiState is UiState.Success){
-            uiState.data ?: listOf()
-        }else{
-            listOf()
+        val characters = remember(uiState) {
+            if (uiState is UiState.Success) {
+                uiState.data ?: emptyList()
+            } else {
+                emptyList()
+            }
         }
 
         val gridState = rememberLazyGridState()

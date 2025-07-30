@@ -4,5 +4,5 @@ import com.davidcuyas.rickandmortyapp.domain.entities.Episode
 
 
 interface EpisodeDatasource {
-    suspend fun getById(id: Int): Episode?
+    suspend fun getById(idList: List<Int>): List<Episode>
 }

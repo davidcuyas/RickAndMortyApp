@@ -10,12 +10,22 @@ class RemoteEpisodeDatasource @Inject constructor(
     private val apiService: RickAndMortyApiService
 ) : EpisodeDatasource {
 
-    override suspend fun getById(id: Int): Episode? {
+    override suspend fun getById(idList: List<Int>): List<Episode> {
         return try {
-            apiService.getEpisodeById(id).toDomain()
+            val idListString = if(idList.count() > 1) {
+                idList.joinToString(",")
+            }else {
+                idList.toString()
+            }
+
+            val episodes = mutableListOf<Episode>()
+            val apiEpisodes = apiService.getEpisodesByMultipleId(idListString)
+            apiEpisodes.forEach {
+                episodes.add(it.toDomain())
+            }
+            episodes
         } catch (e: Exception) {
-            // TODO: Handle exceptions
-            null
+            throw e
         }
     }
 }

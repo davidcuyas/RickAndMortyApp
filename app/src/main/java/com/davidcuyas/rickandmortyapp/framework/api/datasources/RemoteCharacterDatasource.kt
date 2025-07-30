@@ -18,8 +18,7 @@ class RemoteCharacterDatasource @Inject constructor(
         return try {
             apiService.getAllCharacters(page = page).results.map { it.toDomain() }
         } catch (e: Exception) {
-            // TODO: Handle exceptions
-            emptyList()
+            throw e
         }
     }
 
@@ -27,8 +26,7 @@ class RemoteCharacterDatasource @Inject constructor(
         return try {
             apiService.getCharacterById(id).toDomain()
         } catch (e: Exception) {
-            // TODO: Handle exceptions
-            null
+            throw e
         }
     }
 

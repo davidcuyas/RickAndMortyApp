@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.intl.Locale
@@ -70,9 +71,26 @@ fun CharacterCardOverview(
             }
             Spacer(modifier = Modifier.width(16.dp))
             Column {
-                InfoText(label = "Name", value = character?.name, fontFamily)
-                InfoText(label = "Status", value = character?.status?.capitalize(Locale.current), fontFamily)
-                InfoText(label = "Specie", value = character?.species, fontFamily)
+                InfoText(
+                    label = stringResource(R.string.character_card_overview_name),
+                    value = character?.name,
+                    fontFamily = fontFamily
+                )
+                InfoText(
+                    label = stringResource(R.string.character_card_overview_status),
+                    value = character?.status?.capitalize(Locale.current),
+                    fontFamily = fontFamily
+                )
+                InfoText(
+                    label = stringResource(R.string.character_card_overview_species),
+                    value = character?.species,
+                    fontFamily = fontFamily
+                )
+                InfoText(
+                    label = stringResource(R.string.character_card_overview_gender),
+                    value = character?.gender,
+                    fontFamily = fontFamily
+                )
             }
         }
     }

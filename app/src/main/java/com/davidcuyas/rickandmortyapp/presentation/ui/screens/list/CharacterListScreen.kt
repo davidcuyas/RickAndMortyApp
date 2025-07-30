@@ -1,11 +1,13 @@
 package com.davidcuyas.rickandmortyapp.presentation.ui.screens.list
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.davidcuyas.rickandmortyapp.framework.navigation.top.CharacterListAppBar
 import com.davidcuyas.rickandmortyapp.presentation.ui.shared.BaseScaffold
+import com.davidcuyas.rickandmortyapp.presentation.viewmodels.base.UiState
 import com.davidcuyas.rickandmortyapp.presentation.viewmodels.character.CharacterListViewModel
 
 @Composable
@@ -19,6 +21,12 @@ fun CharacterListScreen(
         appBar = { CharacterListAppBar() }
     ) {
         val uiState = characterListViewModel.uiState().collectAsStateWithLifecycle().value
+
+        val characters = remember(uiState) {
+            if (uiState is UiState.Success) {
+                uiState.data ?: emptyList()
+            } else emptyList()
+        }
 
         CharacterListContent(
             uiState = uiState,

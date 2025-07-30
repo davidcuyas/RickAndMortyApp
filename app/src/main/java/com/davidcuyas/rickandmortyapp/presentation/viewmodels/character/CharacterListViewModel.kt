@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CharacterListViewModel @Inject constructor(
     application: Application,
-    private val interactors: CharacterInteractors
+    private val interactors: CharacterInteractors,
 ) : BaseViewModel<List<CharacterListDto>>(application) {
     private var currentPage = 1
     private var isLoadingMore = false

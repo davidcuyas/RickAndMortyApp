@@ -33,6 +33,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.davidcuyas.rickandmortyapp.R
 import com.davidcuyas.rickandmortyapp.domain.entities.Status
 import com.davidcuyas.rickandmortyapp.presentation.ui.composables.elements.Tag
+import com.davidcuyas.rickandmortyapp.presentation.ui.shared.mockCharacterList
 import com.davidcuyas.rickandmortyapp.presentation.ui.theme.LemonYellow
 import com.davidcuyas.rickandmortyapp.presentation.ui.theme.LightGoldenrodYellow
 import com.davidcuyas.rickandmortyapp.presentation.ui.theme.LightGray
@@ -48,7 +49,7 @@ fun CharacterListItem(
     character: CharacterListDto,
     onClick: (Int) -> Unit = {}
 ) {
-    val fontFamily = ThemeFontFamily.playFontFamily
+    val fontFamily = ThemeFontFamily.schoolbellFontFamily
     Column(modifier = modifier
         .clickable {
             onClick(character.id)
@@ -139,13 +140,7 @@ private fun getColorFromStatus(status: Status?): Color{
 @Composable
 private fun HumanAliveCharacterListItemPreview() {
     CharacterListItem(
-        character = CharacterListDto(
-            id = 1,
-            name = "Rick Sanchez",
-            imageUrl = "",
-            species = "Human",
-            status = "Alive"
-        )
+        character = mockCharacterList.first()
     )
 }
 
@@ -153,13 +148,7 @@ private fun HumanAliveCharacterListItemPreview() {
 @Composable
 private fun AlienDeadCharacterListItemPreview() {
     CharacterListItem(
-        character = CharacterListDto(
-            id = 1,
-            name = "Rick Sanchez",
-            imageUrl = "",
-            species = "Alien",
-            status = "Dead"
-        )
+        character = mockCharacterList[1]
     )
 }
 
@@ -167,13 +156,7 @@ private fun AlienDeadCharacterListItemPreview() {
 @Composable
 private fun AnimalUnknownCharacterListItemPreview() {
     CharacterListItem(
-        character = CharacterListDto(
-            id = 1,
-            name = "Rick Sanchez",
-            imageUrl = "",
-            species = "Animal",
-            status = "Unknown"
-        )
+        character = mockCharacterList[2]
     )
 }
 

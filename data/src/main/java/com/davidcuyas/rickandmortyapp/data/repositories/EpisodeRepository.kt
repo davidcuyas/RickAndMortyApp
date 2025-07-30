@@ -6,6 +6,6 @@ import com.davidcuyas.rickandmortyapp.domain.entities.Episode
 open class EpisodeRepository(
     private val datasource: EpisodeDatasource
 ) {
-    suspend fun getById(id: Int): Episode? =
-        datasource.getById(id)
+    suspend fun getById(idList: List<Int>): List<Episode> =
+        datasource.getById(idList)
 }

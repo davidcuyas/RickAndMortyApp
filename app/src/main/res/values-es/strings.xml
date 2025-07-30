@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">R&amp;M App</string>
+
+    <string name="character_card_detail_type">Tipo</string>
+    <string name="character_card_detail_origin">Origen</string>
+    <string name="character_card_detail_location">Ubicación</string>
+
+    <plurals name="character_card_detail_episodes_appearance">
+        <item quantity="one">Aparece en este episodio:</item>
+        <item quantity="other">Aparece en estos episodios:</item>
+        <item quantity="many">Aparece en estos episodios:</item>
+    </plurals>
+
+    <string name="character_card_overview_name">Nombre</string>
+    <string name="character_card_overview_status">Estado</string>
+    <string name="character_card_overview_species">Espécie</string>
+    <string name="character_card_overview_gender">Género</string>
+</resources>

@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CharacterDetailViewModel @Inject constructor(
     application: Application,
-    private val interactors: CharacterInteractors
+    private val interactors: CharacterInteractors,
 ) : BaseViewModel<CharacterDetailDto>(application) {
 
     fun getCharacterDetailById(id: Int) {

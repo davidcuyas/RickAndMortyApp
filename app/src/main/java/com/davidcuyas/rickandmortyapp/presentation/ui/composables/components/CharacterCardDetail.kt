@@ -15,11 +15,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.davidcuyas.rickandmortyapp.R
 import com.davidcuyas.rickandmortyapp.presentation.ui.composables.elements.EpisodeInfo
 import com.davidcuyas.rickandmortyapp.presentation.ui.composables.elements.InfoText
 import com.davidcuyas.rickandmortyapp.presentation.ui.shared.mockCharacterDetail
@@ -43,14 +46,33 @@ fun CharacterCardDetail(
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
 
-            InfoText(label = "Type", value = character?.type, fontFamily)
-            InfoText(label = "Origin", value = character?.origin?.name, fontFamily)
-            InfoText(label = "Location", value = character?.location?.name, fontFamily)
-            Text("Appears on these episodes:", fontFamily = fontFamily, fontWeight = FontWeight.Bold, fontSize = 15.sp)
+            InfoText(
+                label = stringResource(R.string.character_card_detail_type),
+                value = character?.type,
+                fontFamily = fontFamily
+            )
+            InfoText(
+                label = stringResource(R.string.character_card_detail_origin),
+                value = character?.origin?.name,
+                fontFamily = fontFamily
+            )
+            InfoText(
+                label = stringResource(R.string.character_card_detail_location),
+                value = character?.location?.name,
+                fontFamily = fontFamily
+            )
+
+            val episodeCount = character?.episode?.count() ?: 0
+            val appearsOnEpisodesText = LocalContext.current.resources.getQuantityString(
+                R.plurals.character_card_detail_episodes_appearance,
+                episodeCount
+            )
+
+            Text(appearsOnEpisodesText, fontFamily = fontFamily, fontWeight = FontWeight.Bold, fontSize = 15.sp)
             Spacer(modifier = Modifier.height(4.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 LazyColumn {
-                    items(character?.episode?.count() ?: 0){
+                    items(episodeCount){
                         val episode = character?.episode?.get(it)
                         EpisodeInfo(episode = episode, fontFamily = fontFamily)
                     }
