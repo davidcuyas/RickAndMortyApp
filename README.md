@@ -57,7 +57,7 @@ This app follows a **modular Clean Architecture**, based on **SOLID principles**
 ---
 
 ## 🛠️ Tech Stack
-g
+
 - **Language**: Kotlin
 - **UI Toolkit**: Jetpack Compose
 - **Architecture**: Clean Architecture
