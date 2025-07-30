@@ -47,9 +47,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    testImplementation(libs.junit)
-
-
     implementation(libs.androidx.multidex)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
@@ -89,6 +86,12 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+    testImplementation(libs.mockk)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.kotlin.coroutines.test)
+    testImplementation(libs.turbine)
+    testImplementation(libs.junit)
+    testImplementation(libs.androidx.test.core)
     //endregion
 
     //region Debug tools
